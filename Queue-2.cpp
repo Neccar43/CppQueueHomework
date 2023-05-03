@@ -6,10 +6,10 @@ using namespace std;
 struct Stack {
     int numberArr[STACK_LENGTH];
     int timeArr[STACK_LENGTH];
-    int _top;
+    int top;
 
     Stack() {
-        _top = 0;
+        top = 0;
     }
 
     void pop();
@@ -28,14 +28,14 @@ void Stack::pop() {
         cout << "Stack is empty.";
         return;
     }
-    --_top;
+    --top;
 }
 
 void Stack::push(int number, int time) {
-    if (_top < STACK_LENGTH) {
-        numberArr[_top] = number;
-        timeArr[_top] = time;
-        ++_top;
+    if (top < STACK_LENGTH) {
+        numberArr[top] = number;
+        timeArr[top] = time;
+        ++top;
         return;
     }
     cout << "Stack is full.";
@@ -43,15 +43,68 @@ void Stack::push(int number, int time) {
 }
 
 bool Stack::isEmpty() {
-    return _top == 0;
+    return top == 0;
 }
 
 int Stack::peekNumber() {
-    return numberArr[_top];
+    return numberArr[top];
 }
 
 int Stack::peekTime() {
-    return timeArr[_top];
+    return timeArr[top];
+}
+
+struct Queue {
+    Stack s1,s2;
+
+    void enqueue();
+
+    void dequeue();
+
+    bool isEmpty();
+
+    double averageProcessingTime();
+
+    void getListOfQueue();
+
+
+};
+
+bool Queue::isEmpty() {
+    return s1.isEmpty()&&s2.isEmpty();
+}
+
+void Queue::enqueue() {
+    int time=rand()%271+30;
+    if (isEmpty()){
+        s1.push(s1.top + 1, time);
+        return;
+    }
+    if (s1.top==STACK_LENGTH){
+        cout<<"Queue is full";
+        return;
+    }
+    for (int i = s1.top; i>-1; --i) {
+        if (s1.timeArr[i]>time){
+            int temp=s1.timeArr[i];
+            s1.timeArr[i+1]=temp;
+            temp=s1.numberArr[i];
+            s1.numberArr[i+1]=temp;
+        } else {
+            ++s1.top;
+            s1.timeArr[i]=time;
+            s1.numberArr[i]=s1.top;
+            break;
+        }
+
+    }
+
+
+
+}
+
+void Queue::dequeue() {
+    s1.pop();
 }
 
 int main() {
