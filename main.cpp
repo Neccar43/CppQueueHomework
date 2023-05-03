@@ -132,11 +132,13 @@ void Queue::getListOfQueue() {
         return;
     }
     double averageTime=averageProcessingTime();
+    int standbyTime=0;
     while (!isEmpty()) {
-        cout<<s2.peekNumber()<<". Kisi  "<<"Bekleme suresi: "<<s2.peekTime()<<"\n";
+        standbyTime+=s2.peekTime();
+        cout<<s2.peekNumber()<<". Kisi "<<"Islem suresi: "<<s2.peekTime()<<" Bekleme suresi: "<<standbyTime<<"\n";
         dequeue();
     }
-    cout<<"Ortalama bekleme suresi: "<<averageTime;
+    cout<<"Ortalama islem suresi: "<<averageTime;
 }
 
 
