@@ -1,6 +1,7 @@
 #include "iostream"
 
 using namespace std;
+
 struct Node {
     int number;
     int time;
@@ -119,7 +120,7 @@ double Queue::averageProcessingTime() {
     double totalTime = 0;
     while (s1.top != nullptr) {
         totalTime += s1.peekTime();
-        s2.push(s1.peekNumber(),s1.peekTime());
+        s2.push(s1.peekNumber(), s1.peekTime());
         s1.pop();
     }
 
@@ -127,24 +128,25 @@ double Queue::averageProcessingTime() {
 }
 
 void Queue::getListOfQueue() {
-    if (isEmpty()){
-        cout<<"Queue is empty.";
+    if (isEmpty()) {
+        cout << "Queue is empty.";
         return;
     }
-    double averageTime=averageProcessingTime();
-    int standbyTime=0;
+    double averageTime = averageProcessingTime();
+    int standbyTime = 0;
     while (!isEmpty()) {
-        standbyTime+=s2.peekTime();
-        cout<<s2.peekNumber()<<". Kisi "<<"Islem suresi: "<<s2.peekTime()<<" Bekleme suresi: "<<standbyTime<<"\n";
+        standbyTime += s2.peekTime();
+        cout << s2.peekNumber() << ". Kisi| " << "Islem suresi: " << s2.peekTime() << " |Bekleme suresi: "
+             << standbyTime << "\n";
         dequeue();
     }
-    cout<<"Ortalama islem suresi: "<<averageTime;
+    cout << "Ortalama islem suresi: " << averageTime;
 }
 
 
 void menu() {
     cout << "<<<==========Kuyruk Uygulamasi-1==========>>>\n";
-    cout << "Lutfen kuyrukdaki kisi sayisini belirleyiniz.\n" << endl;
+    cout << "Lutfen kuyrukdaki kisi sayisini belirleyiniz.\n";
 
 
 }
