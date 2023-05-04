@@ -22,9 +22,9 @@ struct Stack {
 
     void push(int num, int time);
 
-    int peekNumber();
+    int peakNumber();
 
-    int peekTime();
+    int peakTime();
 
 };
 
@@ -50,7 +50,7 @@ void Stack::push(int num, int time) {
     top = newNode;
 }
 
-int Stack::peekNumber() {
+int Stack::peakNumber() {
     if (isEmpty()) {
         std::cout << "Stack is empty!";
         return -1;
@@ -58,7 +58,7 @@ int Stack::peekNumber() {
     return top->number;
 }
 
-int Stack::peekTime() {
+int Stack::peakTime() {
     if (isEmpty()) {
         std::cout << "Stack is empty!";
         return -1;
@@ -100,7 +100,7 @@ void Queue::dequeue() {
     }
     if (s2.isEmpty()) {
         while (!s1.isEmpty()) {
-            s2.push(s1.peekNumber(), s1.peekTime());
+            s2.push(s1.peakNumber(), s1.peakTime());
             s1.pop();
         }
     }
@@ -119,8 +119,8 @@ double Queue::averageProcessingTime() {
     }
     double totalTime = 0;
     while (s1.top != nullptr) {
-        totalTime += s1.peekTime();
-        s2.push(s1.peekNumber(), s1.peekTime());
+        totalTime += s1.peakTime();
+        s2.push(s1.peakNumber(), s1.peakTime());
         s1.pop();
     }
 
@@ -135,8 +135,8 @@ void Queue::getListOfQueue() {
     double averageTime = averageProcessingTime();
     int standbyTime = 0;
     while (!isEmpty()) {
-        standbyTime += s2.peekTime();
-        cout << s2.peekNumber() << ". Kisi| " << "Islem suresi: " << s2.peekTime() << " |Bekleme suresi: "
+        standbyTime += s2.peakTime();
+        cout << s2.peakNumber() << ". Kisi| " << "Islem suresi: " << s2.peakTime() << " |Bekleme suresi: "
              << standbyTime << "\n";
         dequeue();
     }
@@ -151,7 +151,7 @@ void menu() {
 
 }
 
-int main() {
+/*int main() {
     Queue *q = new Queue();
     int n;
     menu();
@@ -162,7 +162,7 @@ int main() {
     q->getListOfQueue();
 
     return 0;
-}
+}*/
 
 
 
