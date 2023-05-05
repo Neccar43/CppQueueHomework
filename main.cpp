@@ -196,7 +196,7 @@ int Stack2::peakTime() {
     return timeArr[top - 1];
 }
 
-struct Queue2 {
+struct PriorityQueue {
     Stack2 s1, s2;
 
     void enqueue(int time);
@@ -214,11 +214,11 @@ struct Queue2 {
 
 };
 
-bool Queue2::isEmpty() {
+bool PriorityQueue::isEmpty() {
     return s1.isEmpty() && s2.isEmpty();
 }
 
-void Queue2::enqueue(int time) {
+void PriorityQueue::enqueue(int time) {
     if (isEmpty()) {
         s1.push(s1.top + 1, time);
         return;
@@ -245,7 +245,7 @@ void Queue2::enqueue(int time) {
     }
 }
 
-void Queue2::dequeue() {
+void PriorityQueue::dequeue() {
     if (isEmpty()) {
         cout << "Queue is empty.";
         return;
@@ -259,7 +259,7 @@ void Queue2::dequeue() {
     s2.pop();
 }
 
-double Queue2::averageProcessingTime() {
+double PriorityQueue::averageProcessingTime() {
 
     double totalTime = 0;
     while (!s1.isEmpty()) {
@@ -272,7 +272,7 @@ double Queue2::averageProcessingTime() {
 }
 
 
-void Queue2::getListOfWaitingMore() {
+void PriorityQueue::getListOfWaitingMore() {
     s2.top = STACK_LENGTH;
     cout << "\n<======FIFO Kuyruguna Gore Fazla Bekleyenler======>\n";
     bool isWork = false;
@@ -288,7 +288,7 @@ void Queue2::getListOfWaitingMore() {
     }
 }
 
-void Queue2::getListOfQueue() {
+void PriorityQueue::getListOfQueue() {
     if (isEmpty()) {
         cout << "Queue is empty.";
         return;
@@ -305,21 +305,21 @@ void Queue2::getListOfQueue() {
     getListOfWaitingMore();
 }
 
-void startProgram(){
+void startProgram() {
     int processTime[] = {248, 122, 274, 49, 74, 201, 236, 226, 85, 143, 299, 66, 211};
-    Queue *queue=new Queue();
-    Queue2 queue2;
-    for (int randomTime : processTime) {
+    Queue *queue = new Queue();
+    PriorityQueue priorityQueue;
+    for (int randomTime: processTime) {
         queue->enqueue(randomTime);
-        queue2.enqueue(randomTime);
+        priorityQueue.enqueue(randomTime);
     }
-   // cout<<"<===============Kuyruk Uygulamasi===============>"<<endl;
-    cout<<"<==================FIFO Kuyrugu==================>\n";
+    cout << "<==================FIFO Kuyrugu==================>\n";
     queue->getListOfQueue();
-    cout<<"\n\n<=================Oncelik Kuyrugu=================>\n";
-    queue2.getListOfQueue();
+    cout << "\n\n<=================Oncelik Kuyrugu=================>\n";
+    priorityQueue.getListOfQueue();
 
 }
+
 int main() {
     startProgram();
 
