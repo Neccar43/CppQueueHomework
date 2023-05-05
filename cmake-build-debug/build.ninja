@@ -49,14 +49,8 @@ cmake_ninja_workdir = C$:/Users/Abdulkerim/CLionProjects/untitled/cmake-build-de
 
 build cmake_object_order_depends_target_untitled: phony || CMakeFiles/untitled.dir
 
-build CMakeFiles/untitled.dir/Queue-1.cpp.obj: CXX_COMPILER__untitled_Debug C$:/Users/Abdulkerim/CLionProjects/untitled/Queue-1.cpp || cmake_object_order_depends_target_untitled
-  DEP_FILE = CMakeFiles\untitled.dir\Queue-1.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\untitled.dir
-  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
-
-build CMakeFiles/untitled.dir/Queue-2.cpp.obj: CXX_COMPILER__untitled_Debug C$:/Users/Abdulkerim/CLionProjects/untitled/Queue-2.cpp || cmake_object_order_depends_target_untitled
-  DEP_FILE = CMakeFiles\untitled.dir\Queue-2.cpp.obj.d
+build CMakeFiles/untitled.dir/main.cpp.obj: CXX_COMPILER__untitled_Debug C$:/Users/Abdulkerim/CLionProjects/untitled/main.cpp || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles\untitled.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\untitled.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled.dir
@@ -69,7 +63,7 @@ build CMakeFiles/untitled.dir/Queue-2.cpp.obj: CXX_COMPILER__untitled_Debug C$:/
 #############################################
 # Link the executable untitled.exe
 
-build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/Queue-1.cpp.obj CMakeFiles/untitled.dir/Queue-2.cpp.obj
+build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled.dir
